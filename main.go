@@ -17,8 +17,16 @@ func main() {
 
 	switch comando {
 
-	case "ping":
+	case "ping": 
 		fmt.Println("Ejecutando ping")
+
+		if len(os.Args) < 3 {
+			fmt.Println("Falta destino")
+			return
+		}
+
+                	destino := os.Args[2]
+                	fmt.Println(comando, "a:", destino)
 
 	case "dns":
                 fmt.Println("Ejecutando consulta DNS")
@@ -27,14 +35,7 @@ func main() {
                 fmt.Println("Ejecutando prueba TCP")
 
 	default:
-		fmt.Println("Comndo desconocido:", comando)
+		fmt.Println("Comando desconocido:", comando)
 	}
 
-
-	fmt.Println("Comando:", comando)
-
-	if len(os.Args) >=3 {
-		destino := os.Args[2]
-		fmt.Println("Destino:", destino)
-	}
 }
